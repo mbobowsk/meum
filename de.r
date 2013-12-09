@@ -75,13 +75,6 @@ mutation<-function(base, point1, point2, range)
   return (list(coordinates=newCoords, quality=evaluation(newCoords)))
 }
 
-
-## Select point using some magic tricks
-selection<-function(population, model)
-{
-  return (simpleSelection(population))
-}
-
 ## Select random point from population
 simpleSelection<-function(population)
 {
@@ -89,7 +82,7 @@ simpleSelection<-function(population)
 }
 
 ## An aggregated operator generates new population and model
-aggregatedOperator<-function(oldModel, range, dimensions, oldPopulation)
+aggregatedOperator<-function(oldModel, range, dimensions, oldPopulation, selection)
 {
   newPopulation <- list()
 
@@ -109,15 +102,15 @@ aggregatedOperator<-function(oldModel, range, dimensions, oldPopulation)
 
 ## The main loop of a metaheuristic.
 ## Returns the last population
-metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensions)
+metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensions, selection)
 {
 	model<-initModel()
   population <- startPoints
-	aa<-aggregatedOperator(model, range, dimensions, population)
+	aa<-aggregatedOperator(model, range, dimensions, population, selection)
   
 	while (!termination(model))
 	{
-		aa<-aggregatedOperator(model, range, dimensions, population)
+		aa<-aggregatedOperator(model, range, dimensions, population, selection)
 		population<-aa$newPopulation
 		model<-aa$newModel
 	}
@@ -140,7 +133,7 @@ getPopulationCenter<-function(population)
 ## dim - dimensions (2, 10, 30 or 50 for CEC05)
 ## range - range of objective function arguments
 ## popSize - size of population
-differentialEvolution<-function(meanPoint, dim, range, popSize)
+differentialEvolution<-function(meanPoint, dim, range, popSize, selection)
 {
   
   startPoints <- list()
@@ -152,7 +145,7 @@ differentialEvolution<-function(meanPoint, dim, range, popSize)
     startPoints[[i]] <- newPoint
   }
   
-	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim)
+	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim, selection)
 	
   best <- getPopulationCenter(result)
   
@@ -160,5 +153,4 @@ differentialEvolution<-function(meanPoint, dim, range, popSize)
 	return(best)
 	
 }
-
 
