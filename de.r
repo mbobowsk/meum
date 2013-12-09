@@ -124,6 +124,17 @@ metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensio
 	return(aa$newPopulation)
 }
 
+# Returns quality of population's center point
+getPopulationCenter<-function(population)
+{
+  meanCoords <- population[[1]]$coordinates
+  for (i in 2:popSize) {
+    meanCoords <- meanCoords + population[[i]]$coordinates
+  }
+  return (evaluation(meanCoords / length(population)))
+}
+
+
 ## Returns the best element from final population
 ## startPoint - meanPoint of the first population
 ## dim - dimensions (2, 10, 30 or 50 for CEC05)
@@ -143,15 +154,11 @@ differentialEvolution<-function(meanPoint, dim, range, popSize)
   
 	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim)
 	
-	#TODO - zwrócić max
-  best <- result[[1]]$quality
-  for (i in 2:popSize) {
-    if (result[[i]]$quality > best)
-      best <- result[[i]]$quality
-  }
+  best <- getPopulationCenter(result)
   
   print(paste("result: ", best))
 	return(best)
 	
 }
+
 
