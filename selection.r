@@ -13,6 +13,7 @@ normalSelection<-function(population, model)
 medianSelection<-function(population, model)
 {
   probability <- (model$limit - model$iter) / model$limit
+  probability <- probability - 0.2
   med <- median(population %$% "quality")
   
   repeat {

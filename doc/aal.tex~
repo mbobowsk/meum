@@ -1,0 +1,37 @@
+\documentclass[a4paper,12pt,oneside,notitlepage,onecolumn]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+
+\usepackage[OT4]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{indentfirst}
+\usepackage{graphics}
+
+\usepackage[dvips]{hyperref}
+
+\author{Michał Bobowski}
+\date{2013-12-12}
+\title{Dokumentacja do projektu MEUM}
+
+\begin{document}
+  \maketitle
+
+\section{Opis algorytmu}
+\subsection{Selekcja medianowa}
+\subsection{Selekcja progowa}
+
+\section{Kod źródłowy}
+
+\section{Testy}
+\subsection{Środowisko testowe}
+\subsection{Funkcja f1}
+
+\section{Wnioski}
+
+
+\end{document}

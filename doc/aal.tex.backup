@@ -1,0 +1,27 @@
+\documentclass[a4paper,12pt,oneside,notitlepage,onecolumn]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{fontenc}
+\usepackage{graphicx}
+
+\usepackage[OT4]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{indentfirst}
+\usepackage{graphics}
+
+\usepackage[dvips]{hyperref}
+
+\author{Michał Bobowski, Andrzej Dudziec, Wojciech Poźniak}
+\date{2012-10-13}
+\title{Dokumentacja do projektu Ekspert}
+
+\begin{document}
+  \maketitle
+\section{Treść problemu}
+
+
+
+\end{document}
