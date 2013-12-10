@@ -1,16 +1,16 @@
-
 ## Model is a list of:
-# iter - current iteration
-initModel<-function(startPoints)
+# iter - current iteration number
+# limit - iteration limit
+initModel<-function(limit)
 {
-	return (list(iter=1))
+	return (list(iter=1, limit=limit))
 }
 
 
 ## Termination condition
 termination<-function(model)
 {
-	if ( model$iter > 500 )
+	if ( model$iter > model$limit )
 		return (TRUE)
 	else
 		return (FALSE)
@@ -19,7 +19,7 @@ termination<-function(model)
 ## Update model
 modelUpdate<-function(model)
 {
-  return (list(iter = model$iter + 1))
+  return (list(iter = model$iter + 1, limit = model$limit))
 }
 
 ## Tournament
@@ -94,17 +94,18 @@ aggregatedOperator<-function(oldModel, range, dimensions, oldPopulation, selecti
 
 ## The main loop of a metaheuristic.
 ## Returns the last population
-metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensions, selection)
+metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensions, selection, iterations)
 {
-	model<-initModel()
+	model<-initModel(iterations)
   population <- startPoints
-	aa<-aggregatedOperator(model, range, dimensions, population, selection)
   
-	while (!termination(model))
-	{
+	repeat {
 		aa<-aggregatedOperator(model, range, dimensions, population, selection)
 		population<-aa$newPopulation
 		model<-aa$newModel
+    
+    if (termination(model))
+      break;
 	}
 	return(aa$newPopulation)
 }
@@ -113,7 +114,7 @@ metaheuristicRun<-function(startPoints, termination, evaluation, range, dimensio
 getPopulationCenter<-function(population)
 {
   meanCoords <- population[[1]]$coordinates
-  for (i in 2:popSize) {
+  for (i in 2:length(population)) {
     meanCoords <- meanCoords + population[[i]]$coordinates
   }
   return (evaluation(meanCoords / length(population)))
@@ -125,7 +126,7 @@ getPopulationCenter<-function(population)
 ## dim - dimensions (2, 10, 30 or 50 for CEC05)
 ## range - range of objective function arguments
 ## popSize - size of population
-differentialEvolution<-function(meanPoint, dim, range, popSize, selection, evaluation)
+differentialEvolution<-function(meanPoint, dim, range, popSize, selection, evaluation, iterations)
 {
   
   startPoints <- list()
@@ -137,7 +138,7 @@ differentialEvolution<-function(meanPoint, dim, range, popSize, selection, evalu
     startPoints[[i]] <- newPoint
   }
   
-	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim, selection)
+	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim, selection, iterations)
 	
   best <- getPopulationCenter(result)
   
