@@ -1,11 +1,3 @@
-library(cec2005benchmark)
-
-## Obliczenie wartości funkcji celu w punkcie
-## '-' bo zadanie maksymalizacji
-evaluation<-function(coordinates)
-{
-	return (-cec2005benchmark1(coordinates))
-}
 
 ## Model is a list of:
 # iter - current iteration
@@ -133,7 +125,7 @@ getPopulationCenter<-function(population)
 ## dim - dimensions (2, 10, 30 or 50 for CEC05)
 ## range - range of objective function arguments
 ## popSize - size of population
-differentialEvolution<-function(meanPoint, dim, range, popSize, selection)
+differentialEvolution<-function(meanPoint, dim, range, popSize, selection, evaluation)
 {
   
   startPoints <- list()

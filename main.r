@@ -24,12 +24,14 @@ medianSelection<-function(population, model)
 }
 
 
-test_de<-function(dimensions, runs){
+test_de<-function(dimensions, runs, cecFunctionNumber){
 	
 	source("/home/preston/Pulpit/MEUM_projekt/meum/de.r")
+	source("/home/preston/Pulpit/MEUM_projekt/meum/cec.r")
 	library(Hmisc)
 	
-	range <- 100
+	range <- getRange(cecFunctionNumber)
+  evaluation <- getEvaluation(cecFunctionNumber)
 	baseResult <- list()
 	medianResult <- list()
   populationSize <- 10
@@ -39,8 +41,8 @@ test_de<-function(dimensions, runs){
 		
     meanPoint <- c(runif(dimensions,-range,range))
 		
-    base <- differentialEvolution(meanPoint, dimensions, range, populationSize, normalSelection)
-		median <- differentialEvolution(meanPoint, dimensions, range, populationSize, medianSelection)
+    base <- differentialEvolution(meanPoint, dimensions, range, populationSize, normalSelection, evaluation)
+		median <- differentialEvolution(meanPoint, dimensions, range, populationSize, medianSelection, evaluation)
 
 		baseResult <- c(baseResult, base)
 		medianResult <- c(medianResult, median)
