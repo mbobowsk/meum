@@ -44,7 +44,7 @@ Poniżej znajduje się opis algorytmu ewolucji różnicowej, który został zaim
 \hspace{20pt}xi = tournament(xi,z)
 
 \subsection{Alternatywne modele selekcji}
-Głównym polem do eksperymentów było wprowadzenie alternatywnych modeli selekcji, których idea była podobna do algorytmu symulowanego wyżarzania.
+Głównym polem do eksperymentów jest wprowadzenie alternatywnych modeli selekcji, których idea jest podobna do algorytmu symulowanego wyżarzania.
 Początkowo algorytm działa w warunkach zbliżonych do wersji bazowej, ale z czasem wprowadzana jest presja na wybór lepszych punktów.
 Dzięki temu następuje przejście z fazy eksploracji do fazy eksploatacji.
 
@@ -69,7 +69,7 @@ Gdzie:
 
 
 \subsubsection{Selekcja progowa}
-W modelu przechowywana jest posortowana według wartości funkcji celu populacja, aktualizowana po każdym przebiegu pętli głównej.
+W modelu przechowywana jest populacja posortowana według wartości funkcji celu, aktualizowana po każdym przebiegu pętli głównej.
 Na podstawie populacji ustalany jest próg wartości funkcji celu, od którego akceptowane są punkty.
 Jest on równy wartości i-tego punktu (począwszy od najgorszego), przy czym \emph{i} może maksymalnie wynieść wartość o 5 niższą od rozmiaru populacji.
 Wylosowanie punktu gorszego od progu skutkuje powtórzeniem losowania.
@@ -124,7 +124,6 @@ Funkcja f1 jest najprostszą funkcją z całego benchmarku - posiada jedno minim
 Bazowa wersja ewolucji różnicowej rozwiązuje pięćdziesięciowymiarowy problem w około 500 iteracjach, dlatego eksperyment został przeprowadzony dla 200 i 400 iteracji.
 
 Zgodnie z oczekiwaniami w obydwu przypadkach selekcja zwykła okazała się znacznie słabsza od pozostałych modeli.
-Najlepiej wypadła selekcja medianowa, w której presja na akceptowanie lepszych punktów jest silniejsza.
 
 \begin{figure}[ht]
 \centering
@@ -134,9 +133,10 @@ Najlepiej wypadła selekcja medianowa, w której presja na akceptowanie lepszych
 \end{figure}
 
 \subsection{Funkcja f4}
-Funkcja f4 jest również funkcją o jednym minimum, ale jej stopień trudności jest większy niż w f1, co wynika to z silnego zaszumienia funkcji celu.
+Funkcja f4 jest również funkcją o jednym minimum, ale jej stopień trudności jest nieco większy niż w f1, co wynika to z silnego zaszumienia funkcji celu.
 Testy przeprowadzono dla 600 i 900 iteracji.
 Wyniki okazały się w obydwu przypadkach podobne do funkcji f1.
+Najlepiej wypadła selekcja medianowa, w której presja na akceptowanie lepszych punktów jest silniejsza.
 
 \begin{figure}[ht]
 \centering
@@ -149,7 +149,7 @@ Wyniki okazały się w obydwu przypadkach podobne do funkcji f1.
 Ponieważ wyniki poprzednich eksperymentów okazały się obiecujące, należało skonfrontować je z trudniejszym problemem.
 Przykładem trudnej w optymalizacji funkcji jest niewątpliwie f9, która posiada bardzo dużą liczbę minimów lokalnych.
 
-Funkcja okazała się niestety bardzo trudna nawet w 10 wymiarach, więc do uzyskania reprezentatywnych wyników konieczne było znaczne ograniczenie zakresu dziedziny.
+Funkcja okazała się niestety bardzo trudna nawet w 10 wymiarach, więc do uzyskania rozsądnych wyników konieczne było znaczne ograniczenie zakresu dziedziny.
 Wyniki dla 1000 iteracji algorytmu nie wskazują na jakiekolwiek różnice pomiędzy modelami selekcji.
 Być może większa liczba iteracji byłaby bardziej reprezentatywna, ale czas trwania testów przedłużyłby się ponad standardy projektu akademickiego.
 

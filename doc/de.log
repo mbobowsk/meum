@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.16)  13 DEC 2013 20:41
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.3.16)  13 DEC 2013 21:03
 entering extended mode
  %&-line parsing enabled.
 **de.tex
@@ -540,6 +540,12 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 59.
 
+Overfull \hbox (1.04286pt too wide) in paragraph at lines 72--76
+\T1/lmr/m/n/10.95 W mo-delu prze-cho-wy-wana jest po-pu-la-cja po-sor-to-wana w
+e-dªug war-to-±ci funk-
+ []
+
+
 Overfull \hbox (96.49037pt too wide) in paragraph at lines 78--79
 \T1/lmr/m/n/10.95 Caªo±¢ ¹ró-deª jest do-st¦pna w re-po-zy-to-rium pod ad-re-se
 m: https://github.com/mbobowsk/meum 
@@ -548,7 +554,7 @@ m: https://github.com/mbobowsk/meum
 [2] [3] <cec2005_1.jpg, id=79, 963.6pt x 481.8pt>
 File: cec2005_1.jpg Graphic file (type jpg)
  <use cec2005_1.jpg>
-Overfull \hbox (38.33858pt too wide) in paragraph at lines 131--132
+Overfull \hbox (38.33858pt too wide) in paragraph at lines 130--131
  [][] 
  []
 
@@ -570,7 +576,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5065 strings out of 495026
  70955 string characters out of 1181802
- 139779 words of memory out of 3000000
+ 139805 words of memory out of 3000000
  8131 multiletter control sequences out of 15000+50000
  44596 words of font info for 37 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
@@ -584,7 +590,7 @@ f/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
 /type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on de.pdf (6 pages, 282106 bytes).
+Output written on de.pdf (6 pages, 282030 bytes).
 PDF statistics:
  140 PDF objects out of 1000 (max. 8388607)
  23 named destinations out of 1000 (max. 500000)
