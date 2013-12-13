@@ -105,23 +105,42 @@ Szczególnie interesujące było to, czy bardziej skomplikowane modele selekcji 
 Dla każdej funkcji celu zostały przeprowadzone eksperymenty wstępne, które pozwalały ustawić liczbę iteracji na odpowiednim poziomie.
 Przy odpowiednio dużej liczbie wszystkie algorytmy dochodziły do podobnych rozwiązań, a przy zbyt małej nie można było zaobserwować różnicy.
 
+W porównaniu z podstawową wersją benchmarku CEC 2005 zamieniony został znak funkcji celu (rozwiązywany jest problem maksymalizacji, a nie minimalizacji).
+Pozwala to na narysowanie dystrybuanty empirycznej.
+
 \subsection{Parametry środowiska testowego}
 Aby ograniczyć liczbę zmiennych, przyjęto następujące założenia:
 \begin{itemize}
  \item Rozmiar populacji wynosił 20.
+ \item Początkowa populacja była losowana wokół ustalonego punktu z dziedziny z rozkładem normalnym o wariancji równej jednej piątej zakresu.
  \item Problemy były rozwiązywane w kostce o rozmiarach od -100 do 100 (dla f1 i f4) lub od -30 do 30 (dla f9).
  \item Liczba wymiarów wynosiła 50 (dla f1 i f4) lub 10 (dla f9).
  \item Liczba iteracji była każdorazowo dobierana doświadczalnie.
 \end{itemize}
 
 \subsection{Funkcja f1}
+Funkcja f1 jest najprostszą funkcją z całego benchmarku - posiada jedno minimum w całej dziedzinie.
+Bazowa wersja ewolucji różnicowej rozwiązuje pięćdziesięciowymiarowy problem w około 500 iteracjach, dlatego eksperyment został przeprowadzony dla 200 i 400 iteracji.
+
+Zgodnie z oczekiwaniami w obydwu przypadkach selekcja zwykła okazała się znacznie słabsza od pozostałych modeli.
+Najlepiej wypadła selekcja medianowa, w której presja na akceptowanie lepszych punktów jest silniejsza.
 
 \subsection{Funkcja f4}
+Funkcja f4 jest również funkcją o jednym minimum, ale jej stopień trudności jest większy niż w f1, co wynika to z silnego zaszumienia funkcji celu.
+Testy przeprowadzono dla 600 i 900 iteracji.
+Wyniki okazały się w obydwu przypadkach podobne do funkcji f1.
 
 \subsection{Funkcja f9}
+Ponieważ wyniki poprzednich eksperymentów okazały się obiecujące, należało skonfrontować je z trudniejszym problemem.
+Przykładem trudnej w optymalizacji funkcji jest niewątpliwie f9, która posiada bardzo dużą liczbę minimów lokalnych.
+
+Funkcja okazała się niestety bardzo trudna nawet w 10 wymiarach, więc do uzyskania reprezentatywnych wyników konieczne było znaczne ograniczenie zakresu dziedziny.
+Wyniki dla 1000 iteracji algorytmu nie wskazują na jakiekolwiek różnice pomiędzy modelami selekcji.
+Być może większa liczba iteracji byłaby bardziej reprezentatywna, ale .
 
 \section{Wnioski}
 Liczba przeprowadzonych testów nie jest wystarczająca do formułowania całościowych wniosków na temat badanych metod selekcji.
-Można niemniej zauważyć, że dla funkcji prostych takich jak 
+Można niemniej zauważyć, że dla funkcji prostych takich jak f1 i f4 zaobserwowano widoczną poprawę szybkości dochodzenia do minimum lokalnego.
+Z kolei funkcja f9 nie pokazała żadnych różnic pomiędzy metodami selekcji, gdyż posiadała wiele lokalnych minimów.
 
 \end{document}
