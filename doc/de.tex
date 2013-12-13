@@ -7,6 +7,7 @@
 \selectlanguage{polish}
 
 \usepackage{graphics}
+\usepackage{graphicx}
 
 \usepackage[dvips]{hyperref}
 
@@ -125,10 +126,24 @@ Bazowa wersja ewolucji różnicowej rozwiązuje pięćdziesięciowymiarowy probl
 Zgodnie z oczekiwaniami w obydwu przypadkach selekcja zwykła okazała się znacznie słabsza od pozostałych modeli.
 Najlepiej wypadła selekcja medianowa, w której presja na akceptowanie lepszych punktów jest silniejsza.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=140mm]{cec2005_1.jpg}
+\caption{Porównanie modeli selekcji dla funkcji f1}
+\label{overflow}
+\end{figure}
+
 \subsection{Funkcja f4}
 Funkcja f4 jest również funkcją o jednym minimum, ale jej stopień trudności jest większy niż w f1, co wynika to z silnego zaszumienia funkcji celu.
 Testy przeprowadzono dla 600 i 900 iteracji.
 Wyniki okazały się w obydwu przypadkach podobne do funkcji f1.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=140mm]{cec2005_4.jpg}
+\caption{Porównanie modeli selekcji dla funkcji f4}
+\label{overflow}
+\end{figure}
 
 \subsection{Funkcja f9}
 Ponieważ wyniki poprzednich eksperymentów okazały się obiecujące, należało skonfrontować je z trudniejszym problemem.
@@ -137,6 +152,13 @@ Przykładem trudnej w optymalizacji funkcji jest niewątpliwie f9, która posiad
 Funkcja okazała się niestety bardzo trudna nawet w 10 wymiarach, więc do uzyskania reprezentatywnych wyników konieczne było znaczne ograniczenie zakresu dziedziny.
 Wyniki dla 1000 iteracji algorytmu nie wskazują na jakiekolwiek różnice pomiędzy modelami selekcji.
 Być może większa liczba iteracji byłaby bardziej reprezentatywna, ale czas trwania testów przedłużyłby się ponad standardy projektu akademickiego.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=80mm]{cec2005_9.jpg}
+\caption{Porównanie modeli selekcji dla funkcji f9}
+\label{overflow}
+\end{figure}
 
 \section{Wnioski}
 Liczba przeprowadzonych testów nie jest wystarczająca do formułowania całościowych wniosków na temat badanych metod selekcji.
