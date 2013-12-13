@@ -31,7 +31,7 @@ test<-function(dimensions, runs, cecFunctionNumber){
 	
 	# zapisz empiryczną dystrybuantę danych
 	ecdfFileBase <- "/home/preston/Pulpit/MEUM_projekt/plots/ecdf_cec2005_" 
-	ecdfFilename <- paste( ecdfFileBase, cecFunctionNumber, "dim_", dimensions,".jpg")
+	ecdfFilename <- paste(ecdfFileBase, cecFunctionNumber, "dim", dimensions,".jpg")
 	jpeg(ecdfFilename)
 	Ecdf(unlist(baseResult), col = 'blue', lwd = 2, lty = 1, xlab = "Blue=BaseDE, Red=MedianDE, Black=ThreshDE")
 	Ecdf(unlist(medianResult), add = TRUE, col = 'red', lwd = 2, lty = 1)

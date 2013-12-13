@@ -120,6 +120,7 @@ getPopulationCenter<-function(population)
   return (evaluation(meanCoords / length(population)))
 }
 
+`%$%` <- function(x, n)sapply(x, `[[`, n)
 
 ## Returns the best element from final population
 ## startPoint - meanPoint of the first population
@@ -140,7 +141,8 @@ differentialEvolution<-function(meanPoint, dim, range, popSize, selection, evalu
   
 	result <- metaheuristicRun(startPoints, termination, evaluation, range, dim, selection, iterations)
 	
-  best <- getPopulationCenter(result)
+  #best <- getPopulationCenter(result)
+  best <- max(result %$% "quality")
   
   print(paste("result: ", best))
 	return(best)

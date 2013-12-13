@@ -1,7 +1,7 @@
 ## All algorithm parameters are stored here
 getIterations<-function()
 {
-  return (400);
+  return (600);
 }
 
 getPopulationSize<-function()
